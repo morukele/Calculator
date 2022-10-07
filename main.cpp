@@ -4,11 +4,16 @@ enum class Operation{
     Add,
     Subtract,
     Multiply,
-    Divide
+    Divide,
+    Test
 };
 
 struct Calculator{
     Calculator(Operation op){
+        setOperation(op);
+    }
+
+    void setOperation(Operation op){
         operation = op;
     }
 
@@ -43,5 +48,7 @@ private:
 int main() {
     Calculator calculator{Operation::Add};
     calculator.calculate(20, 30);
+    calculator.setOperation(Operation::Multiply);
+    calculator.calculate(100, 20);
     return 0;
 }
